@@ -24,4 +24,3 @@ Route::get('/', function () {
 // Route::get('/showProductAndReviews/{id}', 'ProductsController@showProductAndReviews');
 
 // Route::post('/createProduct', 'ProductsController@createProduct');
-
