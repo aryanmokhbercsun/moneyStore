@@ -15,7 +15,7 @@ class AuthenticateUserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('JWT', ['except' => ['login', 'signup']]);
+        $this->middleware('auth:api', ['except' => ['login', 'signup']]);
     }
     /**
      * Get a JWT via given credentials.
@@ -25,7 +25,7 @@ class AuthenticateUserController extends Controller
     public function login()
     {
         $credentials = request(['email', 'password']);
-        if (!$token = auth()->attempt($credentials)) {
+        if (!$token = auth('api')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
         return $this->respondWithToken($token);
@@ -37,7 +37,7 @@ class AuthenticateUserController extends Controller
      */
     public function me()
     {
-        return response()->json(auth()->user());
+        return response()->json(auth('api')->user());
     }
 
     public function signup(Request $request)
@@ -53,7 +53,7 @@ class AuthenticateUserController extends Controller
      */
     public function logout()
     {
-        auth()->logout();
+        auth('api')->logout();
         return response()->json(['message' => 'Successfully logged out']);
     }
     /**
@@ -76,8 +76,14 @@ class AuthenticateUserController extends Controller
     {
         return response()->json([
             'access_token' => $token,
+            'user' => $this->guard()->user(),
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'expires_in' => auth('api')->factory()->getTTL() * 60
         ]);
+    }
+
+    public function guard() 
+    {
+        return \Auth::Guard('api');
     }
 }

@@ -14,7 +14,6 @@ use Illuminate\Http\Request;
  */
 
 Route::group([
-    'middleware' => 'api',
     'prefix' => '/auth'
 ], function ($router) {
     Route::post('/login', 'AuthenticateUserController@login');
