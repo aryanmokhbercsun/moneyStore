@@ -17,7 +17,9 @@
                              <input type="submit" value="LOGIN">
                          </div>
                          <div class="form-group-row" v-if="authError">
-                             <p class="error"></p>
+                             <p class="error">
+                                 {{ authError }}
+                             </p>
                          </div>
                      </form>
                  </div>
@@ -62,6 +64,9 @@
     }
 </script>
 
-<style lang="">
-    
+<style scoped>
+    .error {
+        text-align: center;
+        color: red;
+    }
 </style>

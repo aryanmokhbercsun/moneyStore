@@ -24,14 +24,18 @@ Route::group([
     Route::post('/me', 'AuthenticateUserController@me');
 });
 
+    Route::post('/products/new', 'ProductsController@createProduct');
+    Route::post('/createReview', 'ReviewsController@createReview');
 
-Route::get('/getAllProducts', 'ProductsController@getAllProducts');
+    Route::get('/products', 'ProductsController@getAllProducts');
 
-Route::get('/getReviews', 'ReviewsController@getReviews');
+Route::group(['middleware' => 'JWT'], function($router){
 
-Route::get('/showProductAndReviews/{id}', 'ProductsController@showProductAndReviews');
+    Route::get('/products/{id}', 'ProductsController@showProductAndReviews');
+    Route::get('/products/{id}', 'ProductsController@showProduct');
 
-Route::post('/createProduct', 'ProductsController@createProduct');
+    Route::get('/getReviews/{id}', 'ReviewsController@getReviews');
+});
 
-Route::post('/createReview', 'ReviewsController@createReview');
+
 

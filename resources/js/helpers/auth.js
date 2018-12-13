@@ -1,10 +1,12 @@
 import Axios from "axios";
+import { setAuthorization } from "./general";
 
 export function login(credentials) {
     return new Promise((res, rej) => {
-        Axios.post('/api/auth/login', credentials)
+        axios.post('/api/auth/login', credentials)
             .then((response) => {
-                res(respond.data);
+                setAuthorization(response.data.access_token);
+                res(response.data);
             })
             .catch((err) =>{
                 rej("Wrong email or password");
@@ -13,11 +15,11 @@ export function login(credentials) {
 }
 
 export function getLocalUser() {
-    const userString = localStorage.getItem("user");
+    const userStr = localStorage.getItem("user");
 
-    if(!userString) {
-        return null; 
+    if(!userStr) {
+        return null;
     }
 
-    return JSON.parse(userString);
+    return JSON.parse(userStr);
 }

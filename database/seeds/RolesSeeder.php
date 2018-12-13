@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 class RolesSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * NOT USED
      *
      * @return void
      */

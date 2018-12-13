@@ -7,7 +7,7 @@ namespace App\Interfaces;
 interface ReviewInterface
 {
 
-	public function getReviews();
+	public function getReviews($product_id);
 
 	public function createReview($data);
 }

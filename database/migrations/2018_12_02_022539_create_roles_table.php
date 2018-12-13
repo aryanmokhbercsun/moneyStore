@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreateRolesTable extends Migration
 {
     /**
-     * Run the migrations.
+     * ROLES NOT USED
      *
      * @return void
      */

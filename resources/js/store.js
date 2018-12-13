@@ -1,4 +1,5 @@
 import { getLocalUser } from "./helpers/auth";
+import Axios from "axios";
 
 const user = getLocalUser();
 
@@ -48,11 +49,21 @@ export default {
             localStorage.removeItem("user");
             state.isLoggedIn = false;
             state.currentUser = null;
+        },
+        updateProducts(state,payload) {
+            state.customers = payload;
         }
     },
     actions: {
         login(context){
             context.commit("login");
         },
+        getProducts(context){
+            Axios.get('/api/products', {
+            })
+            .then((response) => {
+                context.commit('updateProducts', response.data.products);
+            })
+        }
     },
 }

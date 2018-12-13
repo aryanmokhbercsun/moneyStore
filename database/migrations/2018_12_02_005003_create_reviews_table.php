@@ -17,7 +17,7 @@ class CreateReviewsTable extends Migration
 
             $table->increments('id');
 
-            $table->integer('user_id');
+            $table->integer('username');
 
             $table->integer('product_id');
 

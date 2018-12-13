@@ -8,8 +8,8 @@ import axios from 'axios';
 import {routes} from './routes';
 import MainApp from './components/MainApp';
 import StoreData from './store';
-
-
+import Axios from 'axios';
+import {initialize} from './helpers/general';
 
 
 
@@ -28,18 +28,7 @@ const router = new VueRouter({
     mode: 'history',
 });
 
-router.beforeEach((to, from, next) => {
-    const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-    const currentUser = store.state.currentUser;
-
-    if(requiresAuth && !currentUser){
-        next('/login');
-    } else if(to.path == '/login' && currentUser){
-        next('/');
-    } else {
-        next();
-    }
-});
+initialize(store,router);
 
 const app = new Vue({
     el: '#app',

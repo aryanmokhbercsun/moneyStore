@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
+    protected $guarded = [];
     /*
     *
     *
     * @var Array
     */
     protected $fillable = [
-    	'product_ID', 'seller_ID', 'review',
+    	'username', 'product_ID', 'review',
     ];
+    
 
 
     public function products()

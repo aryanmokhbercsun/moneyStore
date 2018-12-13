@@ -14,7 +14,7 @@ class ReviewsSeeder extends Seeder
         //
         DB::table('reviews')->insert([
 			'id' => 1,
-			'user_id' => 2,
+			'username' => 'asdf',
 			'product_id' => 1,
 			'review' => 'I wish the description described what kind of water bottle this was, because I drove out there to find out this is literally a used arrowhead bottle...',
 
@@ -24,7 +24,7 @@ class ReviewsSeeder extends Seeder
 
         DB::table('reviews')->insert([
 			'id' => 2,
-			'user_id' => 3,
+			'username' => 'test',
 			'product_id' => 1,
 			'review' => 'I do not know why the guy above me is complaining, it is a water bottle',
 

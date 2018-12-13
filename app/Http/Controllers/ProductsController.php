@@ -30,15 +30,22 @@ class ProductsController extends Controller
 
     }
 
+    public function showProduct($id)
+    {
+
+    	return $this->productTool->showProduct($id);
+
+    }
+
     public function createProduct(Request $request)
     {
     	$data = [ 
-    		'user_id'=>$request->user_id, 
-    		'name'=>$request->name, 
+    		'username'=>$request->username, 
+    		'title'=>$request->title, 
     		'description'=>$request->description
     	];
 
-    	// dd($data);
+    	
 
     	return $this->productTool->createProduct($data);
 

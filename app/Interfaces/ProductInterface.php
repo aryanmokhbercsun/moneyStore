@@ -11,5 +11,7 @@ interface ProductInterface
 
 	public function showProductAndReviews($id);
 
+	public function showProduct($id);
+
 	public function createProduct($data);
 }

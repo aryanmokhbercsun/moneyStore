@@ -18,21 +18,20 @@ class ReviewsController extends Controller
     }
 
 
-    public function getReviews() {
+    public function getReviews($product_id) {
 
-		return $this->reviewTool->getReviews();
+		return $this->reviewTool->getReviews($product_id);
 
     }
 
     public function createReview(Request $request)
     {
     	$data = [ 
-    		'user_id'=>$request->user_id, 
+    		'username'=>$request->username, 
     		'product_id'=>$request->product_id, 
     		'review'=>$request->review
     	];
 
-    	// dd($data);
 
     	return $this->reviewTool->createReview($data);
 
