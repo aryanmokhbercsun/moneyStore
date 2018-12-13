@@ -4,11 +4,13 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import Home from "./components/Home";
+import Register from './components/auth/Register.vue';
 import Login from "./components/auth/Login";
 import ProductsMain from "./components/products/Main";
 import ProductsList from "./components/products/List";
 import NewProduct from './components/products/New';
 import Product from './components/products/View';
+
 
 export const routes = [
     {
@@ -17,6 +19,10 @@ export const routes = [
         // meta: {
         //     requiresAuth: true
         // }
+    },
+    {
+        path:'/register',
+        component: Register
     },
     {
         path: '/login',

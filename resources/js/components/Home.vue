@@ -7,6 +7,7 @@
 
                     <div class="card-body">
                         <h2>{{ welcome }}</h2>
+                        <h1>Go to Products</h1>
                         
                     </div>
                 </div>
